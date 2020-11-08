@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{timer.name}}</mat-card-title>
+    <mat-card-subtitle>Base duration: {{timer.duration}}s</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div style="text-align: center;">{{ countdown | date:'mm:ss' }}</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="toggleTimer()" mat-icon-button>
+      <ng-template [ngIfElse]="resumed" [ngIf]="!isPaused">
+        <mat-icon>pause</mat-icon>
+      </ng-template>
+      <ng-template #resumed>
+        <mat-icon>play_arrow</mat-icon>
+      </ng-template>
+    </button>
+    <a *ngIf="isPaused" mat-icon-button routerLink="/edit/{{timer.id}}">
+      <mat-icon>edit</mat-icon>
+    </a>
+    <button (click)="removeTimer()" mat-icon-button>
+      <mat-icon>auto_delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

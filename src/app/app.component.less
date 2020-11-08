@@ -1,0 +1,40 @@
+app-root {
+  display: flex;
+  flex-direction: column;
+  //position: absolute;
+  //top: 56px;
+  //bottom: 0;
+  //left: 0;
+  //right: 0;
+}
+
+app-header {
+  //position: fixed;
+  //top: 0;
+  //left: 0;
+  //right: 0;
+  //z-index: 2;
+}
+
+app-homepage {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 320px) {
+  app-root {
+    top: 92px;
+  }
+
+  app-homepage {
+    overflow-y: visible;
+  }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 16px;
+}
+

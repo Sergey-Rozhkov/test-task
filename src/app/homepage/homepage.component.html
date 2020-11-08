@@ -1,0 +1,8 @@
+<a *ngIf="timers.length < 3" color="primary" mat-raised-button routerLink="/add">Add</a>
+
+<div class="timers-list">
+  <ng-template [ngForOf]="timers" [ngForTrackBy]="trackByMethod" let-item ngFor>
+    <app-timer (done)="removeTimer(item.id)" [timer]=item></app-timer>
+  </ng-template>
+</div>
+
