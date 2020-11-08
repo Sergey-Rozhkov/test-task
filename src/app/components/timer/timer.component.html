@@ -4,18 +4,18 @@
     <mat-card-subtitle>Base duration: {{timer.duration}}s</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <div style="text-align: center;">{{ countdown | date:'mm:ss' }}</div>
+    <div style="text-align: center;">{{ timer.counter$ | async | date:'mm:ss' }}</div>
   </mat-card-content>
   <mat-card-actions>
     <button (click)="toggleTimer()" mat-icon-button>
-      <ng-template [ngIfElse]="resumed" [ngIf]="!isPaused">
+      <ng-template [ngIfElse]="paused" [ngIf]="timer.isActive">
         <mat-icon>pause</mat-icon>
       </ng-template>
-      <ng-template #resumed>
+      <ng-template #paused>
         <mat-icon>play_arrow</mat-icon>
       </ng-template>
     </button>
-    <a *ngIf="isPaused" mat-icon-button routerLink="/edit/{{timer.id}}">
+    <a *ngIf="!timer.isActive" mat-icon-button routerLink="/edit/{{timer.id}}">
       <mat-icon>edit</mat-icon>
     </a>
     <button (click)="removeTimer()" mat-icon-button>

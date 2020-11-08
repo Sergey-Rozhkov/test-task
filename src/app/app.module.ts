@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderModule } from './header/header.module';
-import { HomepageModule } from './homepage/homepage.module';
-import { FormModule } from './form/form.module';
+import { HeaderModule } from './components/header/header.module';
+import { HomepageModule } from './components/homepage/homepage.module';
+import { FormModule } from './components/form/form.module';
+import { ConfirmDialogModule } from './components/confirm-dialog/confirm-dialog.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { FormModule } from './form/form.module';
     HeaderModule,
     HomepageModule,
     FormModule,
+    ConfirmDialogModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
